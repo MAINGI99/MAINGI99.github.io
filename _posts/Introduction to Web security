@@ -12,4 +12,4 @@ This Occurs when Unsanitized input is used in database query.
 
 ## XSS
 Cross-site Scripting allows attackers to inject.
----
+
