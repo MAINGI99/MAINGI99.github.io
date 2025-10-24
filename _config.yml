@@ -19,7 +19,7 @@ title: VICTOR MAINGI # the main title
 tagline: Cyberscurity Analyst  ,Pentester  , Network Engineer.# it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-My journey and projects in InfoSec, AI and Digital Forensics.
+"My journey and projects in InfoSec, AI and Digital Forensics".
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -34,8 +34,8 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: VICTOR MAINGI MURITHI
-  email: emurithi.victor06@gmail.com # change to your email address
+  name: "VICTOR MAINGI MURITHI"
+  email: "murithi.victor06@gmail.com" # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/Kamtanojr254 # change to your Twitter homepage
