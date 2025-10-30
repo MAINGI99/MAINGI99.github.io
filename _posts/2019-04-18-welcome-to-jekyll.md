@@ -11,13 +11,13 @@ tags:
 ##Ciriculum Viate
 
 :Education: 
-Bsc Information Security and Forensics, Kenya College of Accountancy*
-Dimploma in Information Technology, Kenya College of Accountancy*
+-Bsc Information Security and Forensics, Kenya College of Accountancy*
+-Dimploma in Information Technology, Kenya College of Accountancy*
 
 :Certifications:
 
-Infornation Security
-CompTIA
-Information Systems Audit
+-Infornation Security
+-CompTIA
+-Information Systems Audit
 
 
