@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Jekyll!"
+title: "Home"
 date: 2019-04-18T15:34:30-04:00
 categories:
   - blog
@@ -8,7 +8,7 @@ tags:
   - update
 ---
 
-##Ciriculum Viate
+##Ciriculum Vitae
 
 :Education: 
 -Bsc Information Security and Forensics, Kenya College of Accountancy*
@@ -16,8 +16,9 @@ tags:
 
 :Certifications:
 
--Infornation Security
--CompTIA
--Information Systems Audit
+-Infornation Security*
+-CompTIA*
+-Information Systems Audit*
+---
 
 
