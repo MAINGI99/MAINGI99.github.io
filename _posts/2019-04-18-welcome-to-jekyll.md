@@ -21,4 +21,9 @@ tags:
 -Information Systems Audit*
 ---
 
+:Skills:
+- Offensive Security
+- Cloud Security
+- 
+
 
