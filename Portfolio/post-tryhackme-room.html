@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryHackMe — [Room Name] Write-up · Victor Maingi</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand"><img src="./assests/img/mylogo.png" alt="Victor Maingi" /></div>
+    <div class="site-title">Victor's <span class="accent">Security Lab</span></div>
+    <div class="site-sub">Cybersecurity | Networking |<br/>Digital Forensics</div>
+    <nav>
+      <a href="index.html"><span class="icon">⌂</span> Home</a>
+      <a href="categories.html"><span class="icon">≡</span> Categories</a>
+      <a href="tags.html"><span class="icon">🏷</span> Tags</a>
+      <a href="archives.html"><span class="icon">🗄</span> Archives</a>
+      <a href="about.html"><span class="icon">ℹ</span> About</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <h1 class="page-title">TryHackMe — [Room Name] Write-up</h1>
+      <div class="meta" style="color:var(--muted); font-family:var(--mono); font-size:0.9rem; margin-bottom:2rem;">
+        2025-03-05 · writeup · tryhackme
+      </div>
+
+      <section>
+        <h2>Overview</h2>
+        <p>
+          Step-by-step notes from a TryHackMe room — covering enumeration,
+          exploitation, and privilege escalation. Flags redacted per THM rules.
+        </p>
+      </section>
+
+      <section>
+        <h2>Reconnaissance</h2>
+        <p>Ran a full TCP scan:</p>
+        <pre><code>nmap -sV -sC -A -p- 10.10.x.x</code></pre>
+        <p>Open ports: <code>21 (FTP)</code>, <code>22 (SSH)</code>, <code>80 (HTTP)</code>.</p>
+      </section>
+
+      <section>
+        <h2>Enumeration</h2>
+        <ul style="color:var(--muted); padding-left:1.25rem;">
+          <li>Anonymous FTP was enabled — listed files, found <code>creds.txt</code>.</li>
+          <li>Directory brute-force with <code>gobuster</code> revealed <code>/admin</code>.</li>
+          <li>Login form was vulnerable to SQL injection.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exploitation</h2>
+        <p>Logged in with SQLi payload and gained admin access. Uploaded a reverse shell:</p>
+        <pre><code>nc -lvnp 4444</code></pre>
+        <p>Caught the shell as <code>www-data</code>.</p>
+      </section>
+
+      <section>
+        <h2>Privilege Escalation</h2>
+        <p>Ran <code>linpeas.sh</code> — found a writable cron job running as root:</p>
+        <pre><code>echo 'cp /bin/bash /tmp/rootbash; chmod +s /tmp/rootbash' >> /opt/script.sh</code></pre>
+        <p>Then:</p>
+        <pre><code>/tmp/rootbash -p</code></pre>
+        <p>Root shell obtained. Read <code>/root/root.txt</code>.</p>
+      </section>
+
+      <section>
+        <h2>Key Lessons</h2>
+        <ul style="color:var(--muted); padding-left:1.25rem;">
+          <li>Anonymous FTP is still common in older CTF rooms — always check.</li>
+          <li>Writable cron jobs = easy root.</li>
+          <li><code>linpeas</code> saves hours of manual enumeration.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tags</h2>
+        <div class="tags">
+          <span class="tag">tryhackme</span>
+          <span class="tag">sqli</span>
+          <span class="tag">cron</span>
+          <span class="tag">linpeas</span>
+          <span class="tag">web</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <aside class="rail">
+    <h3>Recently Updated</h3>
+    <ul>
+      <li><a href="post-kali-privesc.html">Kali Linux — Privilege Escalation</a></li>
+      <li><a href="post-tryhackme-room.html">TryHackMe — [Room Name]</a></li>
+    </ul>
+    <h3>Trending Tags</h3>
+    <div class="tag-list">
+      <span class="tag">tryhackme</span>
+      <span class="tag">sqli</span>
+      <span class="tag">cron</span>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>

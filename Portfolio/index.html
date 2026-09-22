@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home · Victor Maingi</title>
+  <meta name="description" content="My journey and projects in cybersecurity — networking, ethical hacking, and digital forensics." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="./assests/img/mylogo.png" alt="Victor Maingi" />
+    </div>
+    <div class="site-title">Victor's <span class="accent">Security Lab</span></div>
+    <div class="site-sub">Cybersecurity | Networking |<br/>Digital Forensics</div>
+
+    <nav>
+      <a href="index.html" class="active"><span class="icon">⌂</span> Home</a>
+      <a href="categories.html"><span class="icon">≡</span> Categories</a>
+      <a href="tags.html"><span class="icon">🏷</span> Tags</a>
+      <a href="archives.html"><span class="icon">🗄</span> Archives</a>
+      <a href="about.html"><span class="icon">ℹ</span> About</a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+    <div class="main-inner">
+      <h1 class="page-title">Home</h1>
+
+      <ul class="post-list">
+
+        <!-- POST 1 -->
+        <li>
+          <h3><a href="post-kali-privesc.html">Kali Linux — Privilege Escalation Lab</a></h3>
+          <div class="meta">2025-03-12 · lab · linux · pentest</div>
+          <p class="excerpt">
+            A walk-through of a privilege escalation challenge on a Kali target — recon,
+            exploitation, and lessons from gaining root via a misconfigured sudo rule.
+          </p>
+        </li>
+
+        <!-- POST 2 -->
+        <li>
+          <h3><a href="post-tryhackme-room.html">TryHackMe — [Room Name] Write-up</a></h3>
+          <div class="meta">2025-03-05 · writeup · tryhackme</div>
+          <p class="excerpt">
+            Step-by-step notes from a TryHackMe room, including enumeration, exploitation,
+            and privilege escalation via a writable cron job.
+          </p>
+        </li>
+
+        <!-- POST 3 -->
+        <li>
+          <h3><a href="post-home-lab.html">Home Network Security Lab</a></h3>
+          <div class="meta">2025-02-28 · project · networking</div>
+          <p class="excerpt">
+            Building a segmented lab with pfSense, Kali, and victim VMs for practicing
+            attacks and defenses in a safe environment.
+          </p>
+        </li>
+
+        <!-- POST 4 -->
+        <li>
+          <h3><a href="post-password-analyzer.html">Password Strength Analyzer (Python)</a></h3>
+          <div class="meta">2025-02-14 · project · python</div>
+          <p class="excerpt">
+            A small Python tool that scores passwords by entropy, dictionary matches,
+            and character variety — with improvement suggestions.
+          </p>
+        </li>
+
+        <!-- POST 5 -->
+        <li>
+          <h3><a href="post-forensics-autopsy.html">Digital Forensics — Autopsy Case</a></h3>
+          <div class="meta">2025-02-10 · forensics · autopsy</div>
+          <p class="excerpt">
+            Investigating a simulated disk image for evidence of data exfiltration —
+            recovered deleted files and built a timeline.
+          </p>
+        </li>
+
+        <!-- POST 6 -->
+        <li>
+          <h3><a href="post-htb-box.html">Hack The Box — [Box Name]</a></h3>
+          <div class="meta">2025-01-20 · writeup · htb</div>
+          <p class="excerpt">
+            Web exploitation to root on an HTB machine — directory brute-force,
+            SQL injection, and kernel-based privilege escalation.
+          </p>
+        </li>
+
+      </ul>
+    </div>
+  </main>
+
+  <!-- ===== RIGHT RAIL ===== -->
+  <aside class="rail">
+    <h3>Recently Updated</h3>
+    <ul>
+      <li><a href="post-kali-privesc.html">Kali Linux — Privilege Escalation</a></li>
+      <li><a href="post-tryhackme-room.html">TryHackMe — [Room Name]</a></li>
+      <li><a href="post-home-lab.html">Home Network Security Lab</a></li>
+      <li><a href="post-password-analyzer.html">Password Strength Analyzer</a></li>
+      <li><a href="post-forensics-autopsy.html">Digital Forensics — Autopsy</a></li>
+      <li><a href="post-htb-box.html">Hack The Box — [Box Name]</a></li>
+    </ul>
+
+    <h3>Trending Tags</h3>
+    <div class="tag-list">
+      <span class="tag">pentest</span>
+      <span class="tag">privilege-escalation</span>
+      <span class="tag">nmap</span>
+      <span class="tag">wireshark</span>
+      <span class="tag">forensics</span>
+      <span class="tag">autopsy</span>
+      <span class="tag">tryhackme</span>
+      <span class="tag">htb</span>
+      <span class="tag">linux</span>
+      <span class="tag">python</span>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>

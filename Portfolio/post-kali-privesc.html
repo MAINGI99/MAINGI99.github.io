@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kali Linux — Privilege Escalation Lab · Victor Maingi</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand"><img src="./assests/img/mylogo.png" alt="Victor Maingi" /></div>
+    <div class="site-title">Victor's <span class="accent">Security Lab</span></div>
+    <div class="site-sub">Cybersecurity | Networking |<br/>Digital Forensics</div>
+    <nav>
+      <a href="index.html"><span class="icon">⌂</span> Home</a>
+      <a href="categories.html"><span class="icon">≡</span> Categories</a>
+      <a href="tags.html"><span class="icon">🏷</span> Tags</a>
+      <a href="archives.html"><span class="icon">🗄</span> Archives</a>
+      <a href="about.html"><span class="icon">ℹ</span> About</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <h1 class="page-title">Kali Linux — Privilege Escalation Lab</h1>
+      <div class="meta" style="color:var(--muted); font-family:var(--mono); font-size:0.9rem; margin-bottom:2rem;">
+        2025-03-12 · lab · linux · pentest
+      </div>
+
+      <section>
+        <h2>Overview</h2>
+        <p>
+          A walk-through of a privilege escalation challenge on a Kali target —
+          from initial recon to gaining root via a misconfigured sudo rule.
+          The goal: understand how small misconfigurations lead to full system compromise.
+        </p>
+      </section>
+
+      <section>
+        <h2>Environment</h2>
+        <table>
+          <thead><tr><th>Item</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Target</td><td>Kali Linux VM (vulnerable config)</td></tr>
+            <tr><td>Attacker</td><td>Kali Linux (host)</td></tr>
+            <tr><td>Network</td><td>Host-only, 192.168.56.0/24</td></tr>
+            <tr><td>Tools</td><td>nmap, ssh, sudo, linpeas</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Approach</h2>
+
+        <h3>1. Reconnaissance</h3>
+        <p>Scan the target for open ports and services:</p>
+        <pre><code>nmap -sV -sC -p- 192.168.56.10</code></pre>
+        <p>Result: SSH (22) and HTTP (80) open. Web app had a login form.</p>
+
+        <h3>2. Initial Foothold</h3>
+        <p>Discovered default credentials in the web app. SSH'd in as <code>lowuser</code>.</p>
+        <pre><code>ssh lowuser@192.168.56.10</code></pre>
+
+        <h3>3. Enumeration</h3>
+        <p>Ran <code>sudo -l</code> — critical find:</p>
+        <pre><code>User lowuser may run the following commands on kali:
+    (ALL) NOPASSWD: /usr/bin/find</code></pre>
+
+        <h3>4. Privilege Escalation</h3>
+        <p>Abused the <code>find</code> binary to spawn a root shell:</p>
+        <pre><code>sudo find . -exec /bin/sh \; -quit</code></pre>
+        <p>Confirmed with <code>whoami</code> → <code>root</code>.</p>
+
+        <h3>5. Capture the Flag</h3>
+        <p>Read <code>/root/flag.txt</code> and documented the hash.</p>
+      </section>
+
+      <section>
+        <h2>Key Lessons</h2>
+        <ul style="color:var(--muted); padding-left:1.25rem;">
+          <li><code>sudo -l</code> is the first thing to check after gaining a shell — always.</li>
+          <li>Any binary in <code>GTFOBins</code> with sudo rights = instant root.</li>
+          <li>Default credentials remain one of the most common footholds.</li>
+          <li>Document as you go — the writeup is half the value.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tags</h2>
+        <div class="tags">
+          <span class="tag">linux</span>
+          <span class="tag">privilege-escalation</span>
+          <span class="tag">nmap</span>
+          <span class="tag">sudo</span>
+          <span class="tag">gtfobins</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <aside class="rail">
+    <h3>Recently Updated</h3>
+    <ul>
+      <li><a href="post-kali-privesc.html">Kali Linux — Privilege Escalation</a></li>
+      <li><a href="post-tryhackme-room.html">TryHackMe — [Room Name]</a></li>
+      <li><a href="post-home-lab.html">Home Network Security Lab</a></li>
+    </ul>
+    <h3>Trending Tags</h3>
+    <div class="tag-list">
+      <span class="tag">pentest</span>
+      <span class="tag">linux</span>
+      <span class="tag">sudo</span>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>
